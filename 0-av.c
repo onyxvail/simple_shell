@@ -9,7 +9,7 @@
  * Return: Always 0 (success).
  */
 
-int main(int argc, char **argv)
+int av(int argc, char **argv)
 {
 int i = 1;
 while (i < argc)

@@ -12,8 +12,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
-int main();
 int prompt(void);
+
 
 
 
