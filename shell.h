@@ -12,5 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
+int main(int ac, char **av);
+
 
 #endif /*SHELL_H*/
