@@ -12,7 +12,7 @@
  * Return: The return value of the `prompt` function.
  */
 
-int shell(void)
+int main()
 {
 return (prompt());
 }

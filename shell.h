@@ -12,7 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
-int main(int ac, char **av);
+int main();
 int prompt(void);
 
 
