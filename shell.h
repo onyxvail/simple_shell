@@ -13,6 +13,8 @@
 #include <errno.h>
 
 int main(int ac, char **av);
+int prompt(void);
+
 
 
 #endif /*SHELL_H*/
