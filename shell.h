@@ -15,6 +15,7 @@
 int prompt(void);
 
 
+int ls_command(void);
 
 
 #endif /*SHELL_H*/
