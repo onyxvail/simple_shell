@@ -10,6 +10,7 @@
  */
 int main(int argc, char **argv)
 {
+(void)argc;
 char **words = split_string(argv[0], " ");
 int i;
 for (i = 0; words[i] != NULL; i++)
