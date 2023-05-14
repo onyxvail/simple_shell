@@ -12,10 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
-int prompt(void);
 
-
-int ls_command(void);
 
 
 #endif /*SHELL_H*/

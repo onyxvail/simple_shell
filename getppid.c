@@ -1,8 +1,9 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "shell.h"
 
-int getppid(void)
-{
-printf("Parent process PID: %d\n", getppid());
-return 0;
+int main() {
+pid_t my_ppid;
+
+my_ppid = getppid();
+printf("%u\n", my_ppid);
+return (0);
 }
