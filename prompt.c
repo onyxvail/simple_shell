@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * shell - Entry point of the program.
+ * prompt - Entry point of the program.
  *
  * This function is the entry point of the shell program.
  * It calls the `prompt`
@@ -12,7 +12,7 @@
  * Return: The return value of the `prompt` function.
  */
 
-int promp(void)
+int prompt(void)
 {
 return (0);
 }

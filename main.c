@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "shell.h"
 /**
- * prompt - Entry point for the program.
+ * main - Entry point for the program.
  *
  * This function prints "$"
  *  waits for the user to enter a command,
