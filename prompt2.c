@@ -8,7 +8,7 @@ int status;
 do
 {
     printf("Onyxhsell>> ");
-    line = read_line();
+    line = malloc((size_t)read_line());
     args = split_line(line);
     status = onyxshell_execute(args);
     free(line);

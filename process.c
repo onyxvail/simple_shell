@@ -24,8 +24,10 @@ do
 waitpid(pid, &status, WUNTRACED);
 }
 while (!WIFEXITED(status) && !WIFSIGNALED(status));
-{
-return (0);
+
+return (WEXITSTATUS(status));
+
 }
+return (0);
 }
 

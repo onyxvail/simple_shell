@@ -16,8 +16,11 @@
 #define TOKEN_DELIM " \t\r\n\a"
 #define Onyxshell_BUFSIZE 1024
 
+extern char *builtin_str[];
+extern int (*builtin_function[]) (char **);
+
 int onyxshell_execute(char **args);
-char read_line(void);
+char *read_line(void);
 int onyxshell_builtins();
 int onyxshell_cd(char **args);
 
@@ -28,7 +31,6 @@ void prompt(void);
 
 int onyxshell_cd(char **args);
 int onyxshell_exit();
-char *builtin_str[] = {"cd", "exit"};
-int (*builtin_function[]) (char **) = {&onyxshell_cd, &onyxshell_exit};
+
 
 #endif /*SHELL_H*/
