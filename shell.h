@@ -12,9 +12,23 @@
 #include <fcntl.h>
 #include <errno.h>
 
-int main(int argc, char **argv);
-char **split_string(char *str, char *delim);
+#define TOKEN_BUFSIZE 64
+#define TOKEN_DELIM " \t\r\n\a"
+#define Onyxshell_BUFSIZE 1024
+
+int onyxshell_execute(char **args);
+char read_line(void);
+int onyxshell_builtins();
+int onyxshell_cd(char **args);
+
+int onyxshell_process(char **args);
+char **split_line(char *line);
+void prompt(void);
 
 
+int onyxshell_cd(char **args);
+int onyxshell_exit();
+char *builtin_str[] = {"cd", "exit"};
+int (*builtin_function[]) (char **) = {&onyxshell_cd, &onyxshell_exit};
 
 #endif /*SHELL_H*/

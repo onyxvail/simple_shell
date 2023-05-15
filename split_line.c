@@ -1,11 +1,10 @@
 #include"shell.h"
 
-#define TOKEN_BUFSIZE 64
-#define TOKEN_DELIM " \t\r\n\a"
+
 char **split_line(char *line)
 {
 int bufsize = TOKEN_BUFSIZE, position = 0;
-char **tokens = mallor9(bufsize * sizeof(char *));
+char **tokens = malloc(bufsize * sizeof(char *));
 char *token, **tokens_backup;
 if (!tokens)
 {

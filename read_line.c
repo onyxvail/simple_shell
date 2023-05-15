@@ -7,7 +7,7 @@ if (getline(&line, &bufsize, stdin) == -1)
 {
 if (feof(stdin))
 {
-exit(EXIT_SUCCESS)
+exit(EXIT_SUCCESS);
 }
 else
 {
@@ -15,13 +15,14 @@ perror("Onyxshell: getline\n");
 exit(EXIT_FAILURE);
 }
 }
-return (line);
+return (*line);
 }
-#define Onyxshell_BUFSIZE 1024
+
 int bufsize = Onyxshell_BUFSIZE;
 int position = 0;
 char *buffer = malloc(sizeof(char) * bufsize);
 int c;
+
 if (!buffer)
 {
 fprintf(stderr, "Onyxshell: allocation error\n");

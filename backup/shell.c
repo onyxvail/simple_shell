@@ -97,6 +97,7 @@ exit(EXIT_FAILURE);
 }
 return (line);
 }
+
 #define Onyxshell_BUFSIZE 1024
 int bufsize = Onyxshell_BUFSIZE;
 int position = 0;
@@ -135,6 +136,7 @@ exit(EXIT_FAILURE);
 }
 }
 }
+
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIM " \t\r\n\a"
 char **split_line(char *line)
