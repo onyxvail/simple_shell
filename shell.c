@@ -166,7 +166,7 @@ char **split_line(char *line)
         token = strtok(NULL, TOKEN_DELIM);
     }
     tokens[position] = NULL;
-    return tokens;
+    return (tokens);
 }
 
 void prompt(void)
