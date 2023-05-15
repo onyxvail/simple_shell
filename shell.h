@@ -12,7 +12,9 @@
 #include <fcntl.h>
 #include <errno.h>
 
+int main(int argc, char **argv);
 char **split_string(char *str, char *delim);
+
 
 
 #endif /*SHELL_H*/

@@ -1,19 +1,24 @@
 #include "shell.h"
 
+/**
+ * main - Entry point for the program
+ *
+ * @argc: Number of arguments passed to the program
+ * @argv: Array of string arguments passed to the program
+ *
+ * Return: Always 0
+ */
 int main(int argc, char **argv)
 {
-if (argc != 2)
+(void)argc;
+char **words = split_string(argv[0], " ");
+int i;
+for (i = 0; words[i] != NULL; i++)
 {
-fprintf(stderr, "Usage: %s <string>\n", argv[0]);
-return (1);
+printf("%s\n", words[i]);
 }
-  char **words = split_string(argv[0], " ");
-  int i;
-  for (i = 0; words[i] != NULL; i++) {
-    printf("%s\n", words[i]);
-  }
-  free(words);
-  return 0;
+free(words);
+return (0);
 }
 
 char **split_string(char *str, char *delim) {
