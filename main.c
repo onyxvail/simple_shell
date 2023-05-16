@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int main()
+int main(void)
 {
 prompt();
 return (EXIT_SUCCESS); 
