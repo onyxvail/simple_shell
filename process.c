@@ -10,9 +10,8 @@ if (pid == 0)
 if (execvp(args[0], args) == -1)
 {
 perror("Onyxshell");
-}
 exit(EXIT_FAILURE);
-    
+}    
 } else if (pid < 0)
 {
 perror("Onyxshell");
@@ -28,6 +27,8 @@ while (!WIFEXITED(status) && !WIFSIGNALED(status));
 return (WEXITSTATUS(status));
 
 }
-
+return 0;
 }
+
+
 

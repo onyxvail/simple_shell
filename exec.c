@@ -15,5 +15,5 @@ if (strcmp(args[0], builtin_str[i]) == 0)
 return (*builtin_function[i])(args);
 }
 }
-return onyxshell_process(args);
+return 0;
 }
