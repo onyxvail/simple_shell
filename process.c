@@ -16,6 +16,7 @@ exit(EXIT_FAILURE);
 } else if (pid < 0)
 {
 perror("Onyxshell");
+return (-1);
 }
 else
 {
