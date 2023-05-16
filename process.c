@@ -28,6 +28,6 @@ while (!WIFEXITED(status) && !WIFSIGNALED(status));
 return (WEXITSTATUS(status));
 
 }
-return (0);
+
 }
 
