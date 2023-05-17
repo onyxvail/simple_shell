@@ -7,7 +7,7 @@
  *
  * Return: None
  */
-void execute_path(char **arguments, char **envp)
+int execute_path(char **arguments, char **envp)
 {
 	char *path = getenv("PATH");
 	char *token, *command;
@@ -38,4 +38,5 @@ void execute_path(char **arguments, char **envp)
 
 	if (!executed)
 		printf("%s: command not found\n", arguments[0]);
+	return (0);	
 }

@@ -14,6 +14,6 @@ int exitshell(char **arguments, char **environment)
 	status = 0;
 	if (arguments[1])
 		status = convertStringToInteger(arguments[1]);
-	freeResources(arguments);
+	free_resources(0, 0, NULL);
 	exit(status);
 }

@@ -8,7 +8,7 @@
  */
 int builtInCheck(char **arguments, char **environment)
 {
-	BuiltInCommand builtInCommands[] = {
+	void builtInCommands[] = {
 		{"env", printenvar},
 		{"exit", exitshell},
 		{NULL, NULL}
@@ -20,7 +20,7 @@ int builtInCheck(char **arguments, char **environment)
 
 	for (i = 0; builtInCommands[i].command != NULL; i++)
 	{
-		if (_strcmp(arguments[0], builtInCommands[i].command) == 0)
+		if (strcmp(arguments[0], builtInCommands[i].command) == 0)
 			return (builtInCommands[i].function(arguments, environment));
 	}
 

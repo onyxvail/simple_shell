@@ -8,18 +8,21 @@
  **/
 void checkpath(char **command, char **environment)
 {
-	char *command_with_slash, *path;
+	char *command_with_slash = NULL;
+	char *path = NULL;
 	int i, start, last;
-
+	char *command_with_path = NULL;
 	command_with_slash = concatenateStrings("/", command[0]);
-	path = getEnvironmentVariable("PATH", environment);
-	if (path == NULL)
+	path = getenv_custom("PATH", environment);
+
+if (path == NULL)
 	{
 		free(command_with_slash);
 		exit(0);
 	}
-	start = i = last = 0;
-	while (path[i])
+	start = 0;
+
+	for (i = 0; path[i]; i++)
 	{
 		if (path[i] == ':' || path[i + 1] == '\0')
 		{
@@ -30,15 +33,18 @@ void checkpath(char **command, char **environment)
 			}
 			else
 				path[i] = '\0';
-			char *command_with_path = concatenateStrings(path + start, command_with_slash);
+
+			
+command_with_path = concatenateStrings(path + start, command_with_slash);
+
 			if (access(command_with_path, F_OK) == 0)
 			{
 				free(command[0]);
-				command[0] = command_with_path;
-				free(command_with_slash);
+				command[0] = command_with_slash;
+				
 				return;
 			}
-			free(command_with_path);
+			free(command_with_slash);
 			if (last)
 				break;
 			path[i] = ':';

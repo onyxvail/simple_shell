@@ -6,7 +6,7 @@
  * @environment: Array of environment variables
  * Return: 1
  */
-int printenvar(char **arguments, char **environment)
+int printenvar(char **environment)
 {
 	int i, length;
 
@@ -18,6 +18,6 @@ int printenvar(char **arguments, char **environment)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-	freeResources(arguments);
+	free_resources(0, 0, NULL);
 	return (1);
 }
