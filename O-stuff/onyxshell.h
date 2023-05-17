@@ -14,12 +14,14 @@ int execute_path(char **arguments, char **envp);
 void checkpath(char **command, char **environment);
 int get_input(char **input);
 char **split_input(char *input);
-void free_resources(int arg1, int arg2, char *arg3);
+void free_resources(void *ptr);
 int builtInCheck(char **arguments, char **environment);
 unsigned int stringLength(const char *str);
 int convertStringToInteger(char *str);
+
 int printenvar(char **environment);
-int exitshell(char **arguments, char **environment);
+int exitshell(char **arguments);
+
 void freeArray(char **array);
 void freeStrings(int status, const unsigned int count, ...);
 char *copyMemory(char *destination, const char *source, unsigned int n);
@@ -32,5 +34,7 @@ char *getEnvironmentVariable(const char *name, char **environment);
 
 
 char *getenv_custom(char *name, char **env_list);
+
+
 
 #endif /*ONYXSHELL_H*/

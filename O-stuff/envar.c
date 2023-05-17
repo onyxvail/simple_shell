@@ -18,6 +18,6 @@ int printenvar(char **environment)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-	free_resources(0, 0, NULL);
+	free_resources(NULL);
 	return (1);
 }

@@ -1,5 +1,11 @@
 #include "onyxshell.h"
 
+struct BuiltInCommand builtInCommands[] = {
+		{"env", printenvar},
+		{"exit", exitshell},
+		{NULL, NULL}
+	};
+	
 /**
  * builtInCheck - Checks for built-in commands and executes them
  * @arguments: Array of arguments
@@ -8,11 +14,10 @@
  */
 int builtInCheck(char **arguments, char **environment)
 {
-	void builtInCommands[] = {
-		{"env", printenvar},
-		{"exit", exitshell},
-		{NULL, NULL}
-	};
+	
+	
+	
+	
 	int i;
 
 	if (arguments[0] == NULL)

@@ -24,7 +24,7 @@ int main(int argc, char *argv[], char **envp)
     int status;
     pid_t child_pid;
 
-    int num_args; /* variable to store number of arguments */
+   
     int count_args(char **arguments);
     
     (void)argc;
@@ -38,11 +38,11 @@ int main(int argc, char *argv[], char **envp)
         arguments = split_input(input);
         if (!arguments)
         {
-            free_resources(99, num_args, input);
+            free_resources(input);
             continue;
         }
-        num_args = count_args(arguments); /* count nuumber of arguments */
-        free_resources(99, num_args, input);
+        
+        free_resources(input);
         if (builtInCheck(arguments, envp))
             continue;
         child_pid = fork();
@@ -51,19 +51,19 @@ int main(int argc, char *argv[], char **envp)
             if (execute_path(arguments, envp) == -1)
             {
                 perror(*argv);
-                free_resources(99, num_args, NULL);
+                free_resources(NULL);
                 exit(0);
             }
             if (execve(arguments[0], arguments, NULL) == -1)
             {
                 perror(*argv);
-                free_resources(99, num_args, NULL);
+                free_resources(NULL);
                 exit(0);
             }
         }
         else
         {
-            free_resources(99, num_args, NULL);
+            free_resources(NULL);
             if (!wait(&status))
                 break;
         }
