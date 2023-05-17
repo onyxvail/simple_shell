@@ -1,12 +1,12 @@
 #include "onyxshell.h"
 
 /**
- * getenv - Get the value of an environment variable
+ * getenv_custom - Get the value of an environment variable
  * @name: Name of the requested variable
  * @env_list: Environment variable list
  * Return: Pointer to the environment variable value
  **/
-char *getenv(char *name, char **env_list)
+char *getenv_custom(char *name, char **env_list)
 {
 	int i = 0, j = 0;
 	int result, length;
