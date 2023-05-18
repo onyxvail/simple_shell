@@ -40,6 +40,4 @@ char *getEnvironmentVariable(const char *name, char **environment);
 
 char *getenv_custom(char *name, char **env_list);
 
-
-
 #endif /*ONYXSHELL_H*/
