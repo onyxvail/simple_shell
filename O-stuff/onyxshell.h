@@ -10,6 +10,11 @@
 #include <signal.h>
 #include <stdbool.h>
 
+#define BUFFER_SIZE 1024
+#define TOKEN_DELIMITERS " \t\r\n\a"
+
+char **split_input(char *input);
+int get_input(char **input);
 int execute_path(char **arguments, char **envp);
 void checkpath(char **command, char **environment);
 int get_input(char **input);
