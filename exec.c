@@ -2,10 +2,18 @@
 
 
 void executeCommand(char *command) {
-    int status = system(command);
-
-    
-    if (status != 0) {
-        printf("Error executing command: %d\n", status);
+    pid_t pid = fork();
+    if (pid == 0) { 
+    int status = execl(command, command, NULL);
+        if (status == -1) {
+            printf("Error executing command: %s\n", command);
+            exit(1);
+        }
+    } else if (pid > 0) {
+        /* Parent process */
+        wait(NULL);
+    } else {
+        /* Fork failed */
+        printf("Fork failed\n");
     }
 }
