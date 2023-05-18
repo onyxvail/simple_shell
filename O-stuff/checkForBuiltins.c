@@ -33,7 +33,7 @@ int builtInCheck(char **arguments, char **environment)
             return builtInCommands[i].function(arguments);
     }
 
-    return 0;
+    return (0);
 }
 
 
