@@ -6,7 +6,7 @@
  * @str2: second string
  * Return: pointer to the concatenated string
  */
-char *str_concat(char *str1, char *str2)
+char *concatenateStrings(char *str1, char *str2)
 {
 	int len1 = 0;
 	int len2 = 0;

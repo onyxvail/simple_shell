@@ -7,7 +7,7 @@
  * Return: 0 if the strings are equal, a negative value if str1 is less than str2,
  *         or a positive value if str1 is greater than str2
  */
-int string_compare(char *str1, char *str2)
+int compareStrings(char *str1, char *str2)
 {
 	int i;
 
