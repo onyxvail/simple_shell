@@ -1,4 +1,12 @@
 #include "shell.h"
+
+/**
+
+main - Entry point for the simple shell program
+Description: This function implements a simple shell program that reads
+         commands from the user, executes them using the system()
+
+
 int main() {
   char *command = NULL;
   size_t bufsize = 0;
