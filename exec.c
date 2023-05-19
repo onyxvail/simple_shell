@@ -1,5 +1,14 @@
 #include "shell.h"
 
+/**
+* executeCommand - Execute a command using fork and exec
+* @command: The command to execute
+* Description: This function creates a child process using fork and then
+* uses the exec function to replace the child process with
+* the specified command. If the execution fails, an error
+* message is displayed. The parent process waits for the
+* child process to complete before continuing.
+*/
 
 void executeCommand(char *command)
 {
