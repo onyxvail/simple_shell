@@ -1,39 +1,29 @@
-#include "shell.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 int main() {
-  char *command;
-  char *args[10];
-  int i;
+  char *command = NULL;
+  size_t bufsize = 0;
+  ssize_t getline_result;
+  int status;
 
-  /* Read the user's input. */
-  command = getenv("SHELL");
-  if (command == NULL) {
-    command = "/bin/sh";
+  while (1) {
+    printf("simple_shell> ");
+    fflush(stdout);
+
+    getline_result = getline(&command, &bufsize, stdin);
+    if (getline_result == -1) {
+      break;
+    }
+
+    status = system(command);
+    if (status != 0) {
+      printf("Error executing command: %d\n", status);
+    }
+
+    
   }
-
-  /* Parse the user's input. */
-  i = 0;
-  while (command != NULL) {
-    args[i++] = command;
-    command = strtok(NULL, " ");
-  }
-
-  /* Execute the command. */
-  if (execvp(args[0], args) == -1) {
-    perror("execvp");
-    exit(1);
-  }
-
-  /* Print the output of the command. */
-  while (fgets(command, 1024, stdin) != NULL) {
-    printf("%s\n", command);
-  }
-
-  /* Free any allocated memory. */
-  for (i = 0; i < 10; i++) {
-    free(args[i]);
-  }
-
-  /* Exit the program. */
-  return 0;
+    free(command);
+    return 0;
 }
