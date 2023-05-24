@@ -1,5 +1,4 @@
 #include "onyxshell.h"
-
 /**
  *onyx_builtins - function for builtin commands
  *@args: arguments
@@ -7,7 +6,6 @@
  *
  *Return: Always 0 on (success)
  */
-
 int onyx_builtins(char **args, char *line)
 {
 int i, switch_args = 0;
@@ -29,24 +27,16 @@ break;
 switch (switch_args)
 {
 case 1:
-onyx_abort(args, line);
-break;
+return (onyx_abort(args, line));
 case 2:
-cd(args[1], args);
-return (1);
-break;
+return (onyx_cd(args[1], args));
 case 3:
-help();
-return (1);
-break;
+return (onyx_help());
 case 4:
-env();
-return (1);
-break;
+return (onyx_env(NULL));
 default:
-break;
-}
 return (0);
+}
 }
 /**
  *onyx_abort - exiting the onyxshell function
@@ -55,8 +45,7 @@ return (0);
  *
  *Return: VOID
  */
-
-void onyx_abort(char **args, char *line)
+int onyx_abort(char **args, char *line)
 {
 free(line);
 line = NULL;
@@ -64,16 +53,14 @@ free(args);
 args = NULL;
 exit(0);
 }
-
 /**
- *cd - changing the  working directory
+ *onyx_cd - changing the  working directory
  *@path: path
  *@args: argument
  *
  *Return: Returning a new working directory
  */
-
-int cd(char *path, char **args)
+int onyx_cd(char *path, char **args)
 {
 char *home;
 char *old;
@@ -90,14 +77,12 @@ else
 return (chdir(path));
 return (0);
 }
-
 /**
- *help - this is a help function
+ *onyx_help - this is a help function
  *
  *Return: Always 0 (SUCCESS)
  */
-
-int help(void)
+int onyx_help(void)
 {
 	write(STDOUT_FILENO, "Onyx Simple Shell\n", 14);
 	write(STDOUT_FILENO, "Help:\n", 7);
@@ -107,20 +92,21 @@ int help(void)
 	write(STDOUT_FILENO, "help: displaying help\n", 21);
 	return (0);
 }
-
 /**
- *env - A Function that prints env
+ *onyx_env - A Function that prints env
  *
  *Return: VOID
  */
-
-void env(void)
+int onyx_env()
 {
 int i;
+char *env;
 
 for (i = 0; environ[i]; i++)
 {
-write(STDOUT_FILENO, (const void *) environ[i], _strlen(environ[i]));
+env = environ[i];
+write(STDOUT_FILENO, (const void *) env, _strlen(env));
 write(STDOUT_FILENO, "\n", 2);
 }
+return (0);
 }

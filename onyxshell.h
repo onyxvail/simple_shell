@@ -1,12 +1,6 @@
 #ifndef ONYX_SHELL
 #define ONYX_SHELL
 
-
-extern char **environ;
-
-#define BUFSIZE 256
-#define TOKENSIZE 64
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -31,15 +25,14 @@ char *itoa(unsigned int nm);
 int intleng(int nums);
 void rev_array(char *arrs, int leng);
 int onyx_builtins(char **args, char *line);
-void onyx_abort(char **args, char *line);
-int cd(char *path, char **args);
-int help(void);
-void env(void);
+int onyx_abort(char **args, char *line);
+int onyx_cd(char *path, char **args);
+int onyx_help(void);
 char *findthepath(char *filename);
-char *onyx_env(char *nameof);
 int onyx_exec(char *cmd, char **args);
 void sig_hand(int sign);
 void free_arrays(char **arrs);
 int onyx_p_error(int indexe, char **argss);
+char *onyx_env(char *nameof);
 
 #endif /*ONYXSHELL_H*/
