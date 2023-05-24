@@ -19,6 +19,10 @@ int num_args = 0;
 token = strtok(command, " \n");
 while (token != NULL && num_args < MAX_ARGS - 1)
 {
+/* limit lenght of each token to MAX_LENGHT - 1*/
+if (strlen(token) > MAX_LENGTH - 1)
+token[MAX_LENGTH - 1] = '\0';
+
 args[num_args++] = strdup(token);
 token = strtok(NULL, " \n");
 }

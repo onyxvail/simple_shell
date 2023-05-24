@@ -17,5 +17,12 @@ printf("Onyxshell$ ");
 
 if (fgets(command, MAX_LENGTH, stdin) == NULL)
 return (1); /* EOF */
+
+/* remove trailing new line character */
+command[strcspn(command, "\n")] = '\0';
+
+if (strlen(command) == 0)
+return (0); /* empty input */
+
 return (0);
 }
