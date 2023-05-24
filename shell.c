@@ -1,5 +1,6 @@
 #include "shell.h"
 
+
 /**
  * main - Entry point for the shell program
  * @argc: Number of command-line arguments
@@ -35,7 +36,6 @@ if (strcmp(args[0], "exit") == 0)
 break;
 else
 execute_command(args, num_args, argv[0]);
-break; /* exit after executing command */
 }
 
 /* Free memory for arguments */
@@ -46,6 +46,7 @@ free(args[i]);
 /* check if in interractive mode before printing prompt */
 if (isatty(STDIN_FILENO))
 printf("\n");
+
 
 return (0);
 }

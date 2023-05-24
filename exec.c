@@ -49,7 +49,7 @@ exit(1);
 else
 {
 waitpid(pid, NULL, 0);
-break;  /* Exit the loop after the first execution */
+break;
 }
 }
 }
