@@ -1,11 +1,11 @@
 #ifndef ONYX_SHELL
 #define ONYX_SHELL
 
-/* eviron global variable*/
 
 extern char **environ;
 
-/* Header Files */
+#define BUFSIZE 256
+#define TOKENSIZE 64
 
 #include <stdio.h>
 #include <stdlib.h>

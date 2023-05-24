@@ -9,14 +9,15 @@
 
 char *_strchrs(char *st, char ch)
 {
-while (*st != ch && *st != '\0')
-st++;
-if (*st == ch)
-return (st);
-else
-return (NULL);
-}
+    char *ptr;
 
+    if (st == NULL)
+        return (NULL);
+    for (ptr = st; *ptr; ptr++)
+        if (*ptr == ch)
+            return (ptr);
+    return (NULL);
+}
 /**
  * itoa - A Function that converts an int to an array
  * @nm: the given number

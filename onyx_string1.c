@@ -68,17 +68,21 @@ return (ings);
 
 int _strcmpr(char *ss1, char *ss2)
 {
-	while (*ss1 != '\0' && *ss2 != '\0' && *ss1 == *ss2)
-	{
-		ss1++;
-		ss2++;
-	}
-	if (*ss1 == *ss2)
-	{
-		return (0);
-	}
-	else
-		return (*ss1 - *ss2);
+    int cmp = 0, i;
+
+    if (ss1 == NULL || ss2 == NULL)
+        return (1);
+    for (i = 0; ss1[i]; i++)
+    {
+        if (ss1[i] != ss2[i])
+        {
+            cmp = ss1[i] - ss2[i];
+            break;
+        }
+        else
+            continue;
+    }
+    return (cmp);
 }
 
 /**
@@ -95,7 +99,7 @@ char *conc;
 
 strg1_len = _strlen(strg1);
 strg2_len = _strlen(strg2);
-conc = malloc(strg1_len + strg2_len + 2);
+conc = malloc((strg1_len + strg2_len + 2)*sizeof(char));
 if (!conc)
 	return (NULL);
 *conc = '\0';
