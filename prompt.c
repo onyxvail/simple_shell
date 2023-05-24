@@ -12,7 +12,9 @@
  */
 int read_command(char *command)
 {
+if (isatty(STDIN_FILENO)) /* Check if input is from a terminal */
 printf("Onyxshell$ ");
+
 if (fgets(command, MAX_LENGTH, stdin) == NULL)
 return (1); /* EOF */
 return (0);
