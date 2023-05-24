@@ -22,18 +22,16 @@ return (i);
  *
  *Return: string
 */
-
 char *_strcpy(char *destn, char *srcs)
 {
-char *res = destn;
+    int i;
 
-if ((destn != '\0') && (srcs != '\0'))
-{
-while (*srcs != '\0')
-*destn++ = *srcs++;
-*destn = '\0';
-}
-return (res);
+    for (i = 0; srcs[i] != '\0'; i++)
+    {
+        destn[i] = srcs[i];
+    }
+    destn[i] = '\0';
+    return (destn);
 }
 /**
  *_strdupt - A Function that return pointer to
