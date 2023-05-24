@@ -3,15 +3,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <ctype.h>
 
+#define MAX_LENGTH 1024
+#define MAX_ARGS 64
 
-#define INITIAL_BUFFER_SIZE 64
-#define BUFFER_GROWING_FACTOR 2
-#define MAX_COMMAND_LENGHT 100
-
-void executeCommand(char *command);
+int read_command(char *command);
+int tokenize_command(char *command, char *args[]);
+void execute_command(char *args[], int num_args);
 
 #endif

@@ -1,35 +1,53 @@
 #include "shell.h"
-
 /**
-* executeCommand - Execute a command using fork and exec
-* @command: The command to execute
-* Description: This function creates a child process using fork and then
-* uses the exec function to replace the child process with
-* the specified command. If the execution fails, an error
-* message is displayed. The parent process waits for the
-* child process to complete before continuing.
-*/
+ * execute_command - Execute the command
+ * @args: Array of command arguments
+ * @num_args: Number of arguments
+ *
+ * This function executes the given command with the provided arguments.
+ * It handles repeating the command multiple times and trimming spaces
+ * for the "/bin/ls" command.
+ */
+void execute_command(char *args[], int num_args)
+{
+int repeat = 1;
+int i;
 
-void executeCommand(char *command)
+if (num_args > 1 && isdigit(args[num_args - 1][0]))
+{
+repeat = atoi(args[num_args - 1]);
+args[num_args - 1] = NULL;
+num_args--;
+}
+
+
+for (i = 0; i < repeat; i++)
 {
 pid_t pid = fork();
-if (pid == 0)
+if (pid == -1)
 {
-int status = execl(command, command, NULL);
-if (status == -1)
+perror("fork");
+exit(1);
+}
+else if (pid == 0)
 {
-printf("Error executing command: %s\n", command);
+if (strcmp(args[0], "/bin/ls") == 0 && num_args > 1 &&
+args[num_args - 2][0] == ' ')
+{
+char *trimmed_arg = strtok(args[num_args - 1], " \n");
+free(args[num_args - 1]);
+args[num_args - 1] = trimmed_arg;
+}
+
+if (execvp(args[0], args) == -1)
+{
+perror("execvp");
 exit(1);
 }
 }
-else if (pid > 0)
-{
-/* Parent process */
-wait(NULL);
-}
 else
 {
-/* Fork failed */
-printf("Fork failed\n");
+waitpid(pid, NULL, 0);
+}
 }
 }
