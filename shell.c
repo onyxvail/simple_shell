@@ -20,6 +20,7 @@ char *args[MAX_ARGS];
 int num_args;
 int is_eof = 0;
 int i;
+bool is_terminal = isatty(STDIN_FILENO);
 
 (void)argc;
 
@@ -44,8 +45,8 @@ free(args[i]);
 }
 
 /* check if in interractive mode before printing prompt */
-if (isatty(STDIN_FILENO))
-printf("\n");
+if (!is_terminal)
+fflush(stdout);
 
 
 return (0);

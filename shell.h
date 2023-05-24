@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <ctype.h>
 #include <errno.h>
+#include <stdbool.h>
 
 #define MAX_LENGTH 1024
 #define MAX_ARGS 64
