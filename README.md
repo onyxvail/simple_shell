@@ -1,1 +1,1 @@
-c - simple shell
+c - our simple_shell project
