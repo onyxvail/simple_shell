@@ -33,6 +33,13 @@ exit(1);
 }
 else if (pid == 0)
 {
+if (strcmp(args[0], "/bin/ls") == 0 && num_args > 1 && args[num_args - 2][0] == ' ')
+{
+char *trimmed_arg = strtok(args[num_args - 1], " \n");
+free(args[num_args - 1]);
+args[num_args - 1] = trimmed_arg;
+}
+
 if (execvp(args[0], args) == -1)
 {
 fprintf(stderr, "%s: command not found: %s\n", program_name, args[0]);
