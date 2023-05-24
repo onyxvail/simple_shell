@@ -5,10 +5,12 @@
  * Return: 0
  */
 
-int _getpid()
+int _getpid(void)
 {
-	pid_t my_pid;
-	my_pid = getpid();
-	printf("%u", my_pid);
-	return (0);
+pid_t my_pid;
+
+my_pid = getpid();
+
+printf("%u", my_pid);
+return (0);
 }
