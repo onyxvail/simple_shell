@@ -17,11 +17,12 @@ char *token;
 int num_args = 0;
 
 token = strtok(command, " \n");
-while (token != NULL && num_args < MAX_ARGS)
+while (token != NULL && num_args < MAX_ARGS - 1)
 {
 args[num_args++] = strdup(token);
 token = strtok(NULL, " \n");
 }
+args[num_args] = NULL;
 
 return (num_args);
 }
